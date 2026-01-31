@@ -20,11 +20,6 @@ public class HashCodeAndEqualsMethod {
         System.out.println("Value for p3: " + map.get(p3));
         System.out.println(p1);
 
-
-
-
-
-
         Map<String, Integer> map1 = new HashMap<>();
         map1.put("Shubham",90);
         map1.put("Neha",92);
