@@ -23,7 +23,9 @@ public class LRUCacheDemo <K,V> extends LinkedHashMap<K,V> {
         studentMap.put("Bob",99);
         studentMap.put("Alice",80);
         studentMap.put("Ram",91);
+        studentMap.get("Bob");
         studentMap.put("Vipul",89);
+
         System.out.println(studentMap);
 
     }
