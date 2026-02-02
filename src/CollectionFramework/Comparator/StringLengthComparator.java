@@ -18,6 +18,7 @@ public class StringLengthComparator {
         List<String> words = Arrays.asList("banana","apple","date");
         words.sort(new StringCompare());
         System.out.println(words);
+
     }
 
 }

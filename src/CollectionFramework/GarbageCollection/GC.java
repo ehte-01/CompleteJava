@@ -3,7 +3,9 @@ package CollectionFramework.GarbageCollection;
 import java.lang.ref.WeakReference;
 
 public class GC {
+
     public static void main(String[] args) {
+
         WeakReference<Phone> phoneWeakReference = new WeakReference<>(new Phone( "Apple","16 Pro Max"));
         System.out.println(phoneWeakReference.get());
         System.gc();
@@ -12,6 +14,7 @@ public class GC {
         }catch (Exception ignored){
         }
         System.out.println(phoneWeakReference.get());
+
     }
 }
 
