@@ -18,7 +18,6 @@ public class PriorityQueueDemo {
             System.out.println(pq.poll());
         }
         System.out.println(pq.peek());
-        System.out.println(pq.remove());
 
         // internal working
         // PriorityQueue is impemented as a min-heap by default (for natural ordering)
