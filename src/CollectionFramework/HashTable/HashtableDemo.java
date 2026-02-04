@@ -22,7 +22,7 @@ public class HashtableDemo {
 //        // hashtable.put(null, "value"); Throws exception
 //        // hashtable.put(4, "null"); Throws exception
 
-        HashMap<Integer, String> map = new HashMap<>();
+        Hashtable<Integer, String> map = new Hashtable<>();
         Thread thread1 = new Thread(() ->{
             for (int i =0;i< 1000; i++) {
                 map.put(i, "Thread1");
