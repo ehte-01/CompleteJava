@@ -2,10 +2,8 @@ package CollectionFramework.Java8;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
+import java.util.stream.Collectors;
 
 public class Java8Demo {
     public static void main(String[] args) {
@@ -60,6 +58,49 @@ public class Java8Demo {
         // Supplier
         Supplier<String> giveHelloWorld = () -> "Hello World!";
         System.out.println(giveHelloWorld.get());
+
+        // Combined example
+        Predicate<Integer> predicate = x -> x % 2 == 0;
+        Function<Integer, Integer> function = x -> x * x;
+        Consumer<Integer> consumer = x -> System.out.println(x);
+        Supplier<Integer> supplier = () -> 100;
+
+        if (predicate.test(supplier.get())) {
+            consumer.accept(function.apply(supplier.get()));
+        }
+
+        // BiPredicate, BiConsumer, BiFunction
+
+        BiPredicate<Integer, Integer> isSumEven = (x, y) -> x % 2 == 0;
+        System.out.println(isSumEven.test(5,5));
+        BiConsumer<String, Integer> printString = (x, y) -> {
+            System.out.println(x);
+            System.out.println(y);
+        };
+        BiFunction<String, String, Integer> biFunction = (x,y) -> (x+y).length();
+        System.out.println(biFunction.apply("a","bc"));
+
+        // UnaryOperator, BinaryOperator
+        UnaryOperator<Integer> a = x  -> 2*x;
+        BinaryOperator<Integer> b = (x,y) -> x+y;
+
+        // Method reference --> use method without invoking & in place of lambda expression
+        List<String> students = Arrays.asList("Ram","Shyam","Ghanshyam");
+        students.forEach(x->System.out.println(x));
+        students.forEach(System.out::println);
+
+        // Constructor reference
+        List<String> names = Arrays.asList("A","B","C");
+        List<MobilePhone>  mobilePhonesList = names.stream().map(MobilePhone::new).collect(Collectors.toList());
+
+    }
+}
+
+class MobilePhone{
+    String name;
+
+    public MobilePhone(String name) {
+        this.name = name;
     }
 }
 
